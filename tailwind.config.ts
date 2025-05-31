@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -54,20 +55,34 @@ export default {
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+					foreground: 'hsl(var(--sidebar-foreground))'
+				},
+        // PRD specific palette colors not covered by standard Shadcn names
+        'prd-background': '#F8F9FB',
+        'prd-surface': '#FFFFFF',
+        'prd-sidebar': '#E2E5EA',
+        'prd-primary-text': '#212529',
+        'prd-secondary-text': '#707070',
+        'prd-accent-blue': '#0052CC',
+        'prd-accent-red': '#D32F2F',
+        'prd-accent-green': '#388E3C',
+        chart: {
+          '1': '#F9A826',
+          '2': '#8E44AD',
+          '3': '#3498DB',
+          '4': '#E67E22'
+        }
 			},
 			borderRadius: {
+        // Existing configuration maintained: --radius (0.5rem) is 'lg'.
+        // 'md' class then becomes 0.375rem (PRD's default 'rounded-md').
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
